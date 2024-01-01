@@ -37,6 +37,7 @@ public class Combinations {
 		// add track into subsets when track size is k
 		if (track.size() == k) {
 			results.add(new ArrayList<>(track));
+			return;
 		}
 
 		for (int i = start; i < nums.length; i++) {
