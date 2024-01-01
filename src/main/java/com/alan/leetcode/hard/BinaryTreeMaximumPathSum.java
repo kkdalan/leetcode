@@ -3,17 +3,17 @@ package com.alan.leetcode.hard;
 public class BinaryTreeMaximumPathSum {
 
 	public int maxPathSum(TreeNode root) {
-		int maxi = Integer.MIN_VALUE ; // Using an array to store the max value
+		int[] maxi = new int[] {Integer.MIN_VALUE} ; // Using an array to store the max value
 		findMaxPathSum(root, maxi);
-		return maxi;
+		return maxi[0];
 	}
 
-	private int findMaxPathSum(TreeNode node, int maxi) {
+	private int findMaxPathSum(TreeNode node, int[] maxi) {
 		if (node == null)
 			return 0;
 		int left = Math.max(0, findMaxPathSum(node.left, maxi));
 		int right = Math.max(0, findMaxPathSum(node.right, maxi));
-		maxi = Math.max(maxi, left + right + node.val);
+		maxi[0] = Math.max(maxi[0], left + right + node.val);
 		return Math.max(left, right) + node.val;
 	}
 
