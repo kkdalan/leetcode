@@ -28,12 +28,13 @@ public class FourSum {
 	}
 
 	public List<List<Integer>> fourSum(int[] nums, int target) {
+		Arrays.sort(nums);
 		return nSum(nums, 4, 0, target);
     }
 
 	public List<List<Integer>> nSum(int[] nums, int n, int start, long target) {
 		
-		Arrays.sort(nums);
+//		Arrays.sort(nums);
 
 		List<List<Integer>> results = new ArrayList<>();
 		
@@ -71,7 +72,7 @@ public class FourSum {
 
 	public List<List<Integer>> twoSum(int[] nums, int start, long target) {
 
-		Arrays.sort(nums);
+//		Arrays.sort(nums);
 
 		List<List<Integer>> results = new ArrayList<>();
 
