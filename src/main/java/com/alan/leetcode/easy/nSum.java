@@ -46,6 +46,14 @@ public class nSum {
 		return new int[] { -1, -1 };
 	}
 
+	/**
+	 * nums should be sorted ascending.
+	 * nums has duplicate numbers.
+	 * 
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
 	public List<int[]> twoSumTarget(int[] nums, int target) {
 
 		Arrays.sort(nums);
