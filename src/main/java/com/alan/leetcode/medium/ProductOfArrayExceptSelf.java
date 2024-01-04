@@ -14,11 +14,18 @@ public class ProductOfArrayExceptSelf {
 
 	public int[] productExceptSelf(int[] nums) {
 
-		// 1, 2, 3, 4
-		// 2, 3, 4, 1
-		// 3, 4, 1, 2
-		// 4, 1, 2, 3
-
+		//[1, 2, 3, 4]
+		
+		// -, 1, 1, 1
+		// -, -, 2, 2
+		// -, -, -, 3
+		// -, -, -, -
+		
+		// -, -, -, -
+		// 2, -, -, -
+		// 3, 3, -, - 
+		// 4, 4, 4, -
+		
 		// res[]: 1, *1, *1*2, *1*2*3
 		int n = nums.length;
 		int[] res = new int[n];
