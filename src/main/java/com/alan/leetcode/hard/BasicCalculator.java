@@ -37,7 +37,6 @@ public class BasicCalculator {
 				}
 				int left = j + 1;
 				int right = i;
-				
 				String sub = s.substring(left, right);
 				num = calculate(sub);
 			}
