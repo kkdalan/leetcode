@@ -24,16 +24,19 @@ public class BasicCalculator {
 
 		for (int i = 0; i < len; i++) {
 			char c = s.charAt(i);
-			if (isDigit(c)) {
+			if (Character.isDigit(c)) {
 				num = num * 10 + (c - '0');
 			}
 			if (c == '(') {
 				int j = i;
 				int cnt = 0;
 				for (; i < len; i++) {
-					if (s.charAt(i) == '(') cnt++;
-					if (s.charAt(i) == ')') cnt--;
-					if (cnt == 0) break;
+					if (s.charAt(i) == '(')
+						cnt++;
+					if (s.charAt(i) == ')')
+						cnt--;
+					if (cnt == 0)
+						break;
 				}
 				int left = j + 1;
 				int right = i;
@@ -43,7 +46,7 @@ public class BasicCalculator {
 //			if (c == ')') {
 //				break;
 //			}
-			if ((!isDigit(c) && c != ' ') || i == s.length() - 1) {
+			if ((!Character.isDigit(c) && c != ' ') || i == s.length() - 1) {
 				switch (sign) {
 				case '+':
 					stack.push(num);
@@ -72,16 +75,6 @@ public class BasicCalculator {
 			ans += stack.pop();
 		}
 		return ans;
-	}
-
-	private boolean isDigit(char c) {
-		char[] digits = "01234567889".toCharArray();
-		for (char d : digits) {
-			if (d == c) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 }
