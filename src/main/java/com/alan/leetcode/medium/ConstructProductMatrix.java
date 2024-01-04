@@ -77,18 +77,17 @@ public class ConstructProductMatrix {
 
 		long product = 1;
 		for (int i = sz - 1; i >= 0; i--) {
-			res[i] *= (product % mod);
-			product = ((product % mod) * (nums[i] % mod) % mod);
+			res[i] *= product % mod;
+			product = (product % mod) * (nums[i] % mod) % mod;
 		}
 
 		// Convert result array from 1D to 2D
-		int[][] matrix = new int[m][n];
 		for (int i = 0; i < sz; i++) {
 			int r = i / n;
 			int c = i % n;
-			matrix[r][c] = res[i] % mod;
+			grid[r][c] = res[i] % mod;
 		}
 
-		return matrix;
+		return grid;
 	}
 }
