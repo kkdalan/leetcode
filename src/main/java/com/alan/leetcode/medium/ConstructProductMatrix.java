@@ -38,7 +38,6 @@ public class ConstructProductMatrix {
 		// [6345,1215]
 		// [4845,345 ]
 		// [2010,4560]
-
 		int[][] grid4 = sol.constructProductMatrix(new int[][] { { 10, 20 }, { 18, 16 }, { 17, 14 }, { 16, 9 },
 				{ 14, 6 }, { 16, 5 }, { 14, 8 }, { 20, 13 }, { 16, 10 }, { 14, 17 } });
 		sol.display(grid4);
@@ -55,37 +54,26 @@ public class ConstructProductMatrix {
 	public int[][] constructProductMatrix(int[][] grid) {
 
 		int mod = 12345;
-
 		int m = grid.length;
 		int n = grid[0].length;
-
-		// Convert array from 2D to 1D
 		int sz = m * n;
-		int[] nums = new int[sz];
-		for (int i = 0; i < sz; i++) {
-			int r = i / n;
-			int c = i % n;
-			nums[i] = grid[r][c];
-		}
 
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Compute the product except self
 		int[] res = new int[sz];
 		res[0] = 1;
 		for (int i = 1; i < sz; i++) {
-			res[i] = res[i - 1] * (nums[i - 1] % mod) % mod;
+			res[i] = res[i - 1] * (grid[(i - 1) / n][(i - 1) % n] % mod) % mod;
 		}
-
 		long product = 1;
 		for (int i = sz - 1; i >= 0; i--) {
 			res[i] *= product % mod;
-			product = (product % mod) * (nums[i] % mod) % mod;
+			product = (product % mod) * (grid[i / n][i % n] % mod) % mod;
 		}
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-		// Convert result array from 1D to 2D
 		for (int i = 0; i < sz; i++) {
-			int r = i / n;
-			int c = i % n;
-			grid[r][c] = res[i] % mod;
+			grid[i / n][i % n] = res[i] % mod;
 		}
 
 		return grid;
