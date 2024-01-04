@@ -54,7 +54,7 @@ public class ConstructProductMatrix {
 	public int[][] constructProductMatrix(int[][] grid) {
 
 		int mod = 12345;
-		
+
 		int m = grid.length;
 		int n = grid[0].length;
 		int sz = m * n;
@@ -67,14 +67,14 @@ public class ConstructProductMatrix {
 		for (int i = 1; i < sz; i++) {
 			res[i] = res[i - 1] * (grid[(i - 1) / n][(i - 1) % n] % mod) % mod;
 		}
-		
+
 		long product = 1;
-		for (int j = sz - 1; j >= 0; j--) {
-			res[j] *= product % mod;
-			product = (product % mod) * (grid[j / n][j % n] % mod) % mod;
+		for (int i = sz - 1; i >= 0; i--) {
+			res[i] *= product % mod;
+			product = (product % mod) * (grid[i / n][i % n] % mod) % mod;
 
 			// update grid
-			grid[j / n][j % n] = res[j] % mod;
+			grid[i / n][i % n] = res[i] % mod;
 		}
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
