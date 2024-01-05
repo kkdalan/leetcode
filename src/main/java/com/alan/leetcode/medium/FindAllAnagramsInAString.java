@@ -39,7 +39,7 @@ public class FindAllAnagramsInAString {
 
 			if (need.getOrDefault(c, 0) > 0) {
 				window.put(c, window.getOrDefault(c, 0) + 1);
-				if (window.get(c) == need.get(c)) {
+				if (window.get(c).intValue() == need.get(c).intValue()) {
 					valid++;
 				}
 			}
@@ -54,7 +54,7 @@ public class FindAllAnagramsInAString {
 				left++;
 
 				if (need.getOrDefault(d, 0) > 0) {
-					if (window.get(d) == need.get(d)) {
+					if (window.get(d).intValue() == need.get(d).intValue()) {
 						valid--;
 					}
 					window.put(d, window.getOrDefault(d, 0) - 1);
