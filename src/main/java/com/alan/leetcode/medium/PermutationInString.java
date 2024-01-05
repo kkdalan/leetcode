@@ -9,8 +9,8 @@ public class PermutationInString {
 
 		PermutationInString sol = new PermutationInString();
 
-//		System.out.println(sol.checkInclusion("ab", "eidbaooo")); // true
-//		System.out.println(sol.checkInclusion("ab", "eidboaoo")); // false
+		System.out.println(sol.checkInclusion("ab", "eidbaooo")); // true
+		System.out.println(sol.checkInclusion("ab", "eidboaoo")); // false
 		System.out.println(sol.checkInclusion("abcdxabcde", "abcdeabcdx")); // true
 
 	}
@@ -33,7 +33,7 @@ public class PermutationInString {
 
 			if (need.getOrDefault(c, 0) > 0) {
 				window.put(c, window.getOrDefault(c, 0) + 1);
-				if (window.get(c) == need.get(c)) {
+				if (window.get(c).intValue() == need.get(c).intValue()) {
 					valid++;
 				}
 			}
@@ -48,7 +48,7 @@ public class PermutationInString {
 				left++;
 
 				if (need.getOrDefault(d, 0) > 0) {
-					if (window.get(d) == need.get(d)) {
+					if (window.get(d).intValue() == need.get(d).intValue()) {
 						valid--;
 					}
 					window.put(d, window.getOrDefault(d, 0) - 1);
