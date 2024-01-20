@@ -6,6 +6,7 @@ public class LongestCommonSubsequence {
 
 		LongestCommonSubsequence sol = new LongestCommonSubsequence();
 
+		System.out.println(sol.longestCommonSubsequence("ezupkr", "ubmrapg")); // 2
 		System.out.println(sol.longestCommonSubsequence("abcde", "ace")); // 3
 		System.out.println(sol.longestCommonSubsequence("abc", "abc")); // 3
 		System.out.println(sol.longestCommonSubsequence("abc", "def")); // 0
