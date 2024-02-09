@@ -12,21 +12,26 @@ public class HouseRobber {
 	}
 
 	public int rob(int[] nums) {
-		
+
 		int n = nums.length;
-		int[] dp = new int[n + 2];
-		dp[n] = 0;
-		dp[n + 1] = 0;
+
+		int dp_i_1 = 0;
+		int dp_i_2 = 0;
+
+		int dp_i = 0;
 
 		for (int i = n - 1; i >= 0; i--) {
-			dp[i] = Math.max(
+			dp_i = Math.max(
 					// 不取錢，去下間房子
-					dp[i + 1],
+					dp_i_1,
 					// 取錢，去下下間房子
-					nums[i] + dp[i + 2]);
+					nums[i] + dp_i_2);
+			
+			dp_i_2 = dp_i_1;
+			dp_i_1 = dp_i;
 		}
 
-		return dp[0];
+		return dp_i;
 	}
 
 }
